@@ -9,7 +9,8 @@ namespace Monitor.Messages
             int httpStatus, 
             long duration, 
             string httpMethod, 
-            string path)
+            string path,
+            string serviceId)
         {
             if(string.IsNullOrWhiteSpace(httpMethod))
                 throw new ArgumentNullException(nameof(httpMethod));
@@ -21,6 +22,7 @@ namespace Monitor.Messages
             this.Duration = duration;
             this.HttpMethod = httpMethod;
             this.Path = path;
+            this.ServiceId = serviceId;
         }
 
         public DateTime Timestamp { get; }
@@ -28,5 +30,6 @@ namespace Monitor.Messages
         public long Duration { get; }
         public string HttpMethod { get; }
         public string Path { get; }
+        public string ServiceId { get; }
     }
 }

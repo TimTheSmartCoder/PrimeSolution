@@ -7,6 +7,12 @@
 
   <ItemGroup>
     <PackageReference Include="EasyNetQ" Version="2.3.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Monitor.Infrastructure\Monitor.Infrastructure.csproj" />
+    <ProjectReference Include="..\Monitor.Messages\Monitor.Messages.csproj" />
   </ItemGroup>
 
 </Project>
