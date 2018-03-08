@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadBalancer", "Services\Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prime.Api", "Services\Prime\Prime.Api\Prime.Api.csproj", "{E0F964AA-ED29-4E1A-92A5-29340D0D4577}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadBalancer.Messages", "Services\LoadBalancer\LoadBalancer.Messages\LoadBalancer.Messages.csproj", "{99F157A8-C541-40BF-810E-BE1078960EFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadBalancer.Messages", "Services\LoadBalancer\LoadBalancer.Messages\LoadBalancer.Messages.csproj", "{99F157A8-C541-40BF-810E-BE1078960EFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitor.Infrastructure", "Services\Monitor\Monitor.Infrastructure\Monitor.Infrastructure.csproj", "{77B62995-86DB-4CA4-A266-C5BF2A436DAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitor.Domain", "Services\Monitor\Monitor.Domain\Monitor.Domain.csproj", "{00005A52-DAA0-4A7B-92B1-A9673421DB1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitor.AspNetCore", "Services\Monitor\Monitor.AspNetCore\Monitor.AspNetCore.csproj", "{A2522F1D-C899-4BD1-84F9-FA0559924391}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{99F157A8-C541-40BF-810E-BE1078960EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99F157A8-C541-40BF-810E-BE1078960EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99F157A8-C541-40BF-810E-BE1078960EFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77B62995-86DB-4CA4-A266-C5BF2A436DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77B62995-86DB-4CA4-A266-C5BF2A436DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77B62995-86DB-4CA4-A266-C5BF2A436DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77B62995-86DB-4CA4-A266-C5BF2A436DAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00005A52-DAA0-4A7B-92B1-A9673421DB1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00005A52-DAA0-4A7B-92B1-A9673421DB1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00005A52-DAA0-4A7B-92B1-A9673421DB1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00005A52-DAA0-4A7B-92B1-A9673421DB1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2522F1D-C899-4BD1-84F9-FA0559924391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2522F1D-C899-4BD1-84F9-FA0559924391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2522F1D-C899-4BD1-84F9-FA0559924391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2522F1D-C899-4BD1-84F9-FA0559924391}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
