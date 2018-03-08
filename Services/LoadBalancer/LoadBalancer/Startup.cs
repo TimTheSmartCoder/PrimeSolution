@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Monitor.AspNetCore;
 
 namespace LoadBalancer
 {
@@ -61,6 +62,9 @@ namespace LoadBalancer
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            
+            app.UseLogInformation();
 
             // Add the ProxyMiddleware to the application, so proxy can redirect all
             // request to the correct services with the help of the load balancer.

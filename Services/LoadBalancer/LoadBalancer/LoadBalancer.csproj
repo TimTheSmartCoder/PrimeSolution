@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Monitor\Monitor.AspNetCore\Monitor.AspNetCore.csproj" />
     <ProjectReference Include="..\LoadBalancer.Messages\LoadBalancer.Messages.csproj" />
   </ItemGroup>
 

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Monitor.AspNetCore;
 
 namespace Prime.Api
 {
@@ -46,6 +47,7 @@ namespace Prime.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSingleton<IBus>(this.Bus);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +63,7 @@ namespace Prime.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseLogInformation();
 
             app.UseMvc();
 
