@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using EasyNetQ;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 using Monitor.Infrastructure.Configurations;
 using Monitor.Infrastructure.Configurations.EFCore;
 using Monitor.Infrastructure.Repositories;
@@ -13,10 +14,12 @@ namespace Monitor.Console
 {
     class Program
     {
-        
-
         static void Main(string[] args)
         {
+            IConfiguration configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+
             using (IBus bus = RabbitHutch.CreateBus("host=localhost"))
             {
                 bus.SubscribeAsync<LogInformation>("monitor", OnLogInformation);

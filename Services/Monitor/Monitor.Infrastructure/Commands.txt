@@ -1,1 +1,5 @@
-﻿
+﻿// Commando for creating migration scripts.
+Add-Migration -n Added -c MonitorDbContext -StartupProject Monitor.Console
+
+// Commando for updating database with migration scripts.
+Update-Database
