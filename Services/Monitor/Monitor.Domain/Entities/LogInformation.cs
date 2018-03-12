@@ -29,6 +29,8 @@ namespace Monitor.Domain.Entities
             this.ServiceId = serviceId;
         }
 
+        public LogInformation() { }
+
         public int Id { get; private set; }
         public DateTime Timestamp { get; private set; }
         public int HttpStatus { get; private set; }

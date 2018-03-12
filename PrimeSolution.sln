@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monitor.AspNetCore", "Servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monitor.Console", "Services\Monitor\Monitor.Console\Monitor.Console.csproj", "{689DB35A-76F6-45BB-B9C6-65F915D66F9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitor.Messages", "Services\Monitor\Monitor.Messages\Monitor.Messages.csproj", "{ED3C592D-1BEC-46DE-895F-F8B7F5D4BEF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monitor.Messages", "Services\Monitor\Monitor.Messages\Monitor.Messages.csproj", "{ED3C592D-1BEC-46DE-895F-F8B7F5D4BEF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitor.MVC", "Services\Monitor\Monitor.MVC\Monitor.MVC.csproj", "{F6C9BAA8-8FD0-4929-BFDE-722E12958E67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{ED3C592D-1BEC-46DE-895F-F8B7F5D4BEF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED3C592D-1BEC-46DE-895F-F8B7F5D4BEF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED3C592D-1BEC-46DE-895F-F8B7F5D4BEF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6C9BAA8-8FD0-4929-BFDE-722E12958E67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C9BAA8-8FD0-4929-BFDE-722E12958E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C9BAA8-8FD0-4929-BFDE-722E12958E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C9BAA8-8FD0-4929-BFDE-722E12958E67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

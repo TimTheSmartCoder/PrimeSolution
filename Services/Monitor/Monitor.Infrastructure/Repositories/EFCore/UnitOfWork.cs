@@ -4,15 +4,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Monitor.Infrastructure.Configurations.EFCore;
 
 namespace Monitor.Infrastructure.Repositories.EFCore
 {
     public class UnitOfWork
         : IUnitOfWork
     {
-        private readonly DbContext dbContext;
+        private readonly MonitorDbContext dbContext;
 
-        public UnitOfWork(DbContext dbContext)
+        public UnitOfWork(MonitorDbContext dbContext)
         {
             if (dbContext == null)
                 throw new ArgumentNullException(nameof(dbContext));

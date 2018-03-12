@@ -1,0 +1,71 @@
+﻿@model Monitor.MVC.Models.View.ViewIndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<canvas id="requestTimeGraph" width="200" height="200"></canvas>
+<canvas id="requestGraph" width="200" height="200"></canvas>
+
+
+@foreach (var log in Model.LogInformations)
+{
+    <p>@log.Id</p>
+}
+
+@section Scripts {
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script type="text/javascript" src="js/Graph.js"></script>
+    <script type="text/javascript">
+        var requestTimeData =
+            {
+                datasets: [
+                    @foreach (var service in Model.LogInformationsByServices)
+                    {
+                        @Html.Raw("{")
+                        @Html.Raw($"label: '{service.Key}',")
+                        @Html.Raw("backgroundColor: [RandomColorGenerator()],")
+                        @Html.Raw("data: [")
+
+                        foreach (var logInformation in service)
+                        {
+                            @Html.Raw("{ x:'" + logInformation.Timestamp + "', y:" + logInformation.Duration + "},")
+                        }
+                        @Html.Raw("],")
+                        @Html.Raw("},")
+                    }
+                ]
+            }
+        ;
+
+        var numberOfRequests =
+            {
+                labels: [
+                    "Request"
+                ],
+                datasets: [
+                    @foreach (var service in Model.LogInformationsByServices)
+                    {
+                        @Html.Raw("{")
+                        @Html.Raw($"label: '{service.Key}',")
+                        @Html.Raw("backgroundColor: [RandomColorGenerator()],")
+                        @Html.Raw($"data: [{service.Count()}]")
+                        @Html.Raw("},")
+                    }
+                ]
+
+            };
+
+        window.addEventListener("load",
+            function(e) {
+
+                // Display the given log information in a graph.
+                DisplayGraph("requestTimeGraph", requestTimeData, "line", "time");
+
+                // Display the given log information in a graph.
+                DisplayGraph("requestGraph", numberOfRequests, "bar", "category");
+            });
+    </script>
+}

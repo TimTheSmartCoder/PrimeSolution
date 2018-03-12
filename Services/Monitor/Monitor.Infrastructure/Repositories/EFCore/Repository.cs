@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -28,6 +30,12 @@ namespace Monitor.Infrastructure.Repositories.EFCore
                 .Set<TEntity>().Add(entity);
 
             return entry.Entity;
+        }
+
+        public IQueryable<TEntity> Where<TEntity>(Expression<Func<TEntity, bool>> criteria) 
+            where TEntity : class
+        {
+            return this.dbContext.Set<TEntity>().Where(criteria);
         }
     }
 }
