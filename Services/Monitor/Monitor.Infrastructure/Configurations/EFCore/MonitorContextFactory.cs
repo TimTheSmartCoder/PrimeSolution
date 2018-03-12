@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Monitor.Infrastructure.Configurations.EFCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Monitor.Infrastructure.Configurations.EFCore
 {
@@ -8,10 +8,18 @@ namespace Monitor.Infrastructure.Configurations.EFCore
     {
         public MonitorDbContext CreateDbContext(string[] args)
         {
+            // Create configuartion object and get connection string.
+            IConfiguration configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            // Get the connection string from the appsettings configuration.
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
             var optionsBuilder = new DbContextOptionsBuilder<MonitorDbContext>();
-            // @"Server=LAPTOP-EBCC42AV;Initial Catalog=Monitor;Integrated Security=True;"
+            
             // Get the connection from the first argument.
-            optionsBuilder.UseSqlServer(args[0]);
+            optionsBuilder.UseSqlServer(connectionString);
 
             return new MonitorDbContext(optionsBuilder.Options);
         }
