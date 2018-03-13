@@ -16,6 +16,8 @@ namespace Monitor.Messages
                 throw new ArgumentNullException(nameof(httpMethod));
             if (string.IsNullOrWhiteSpace(path))
                 throw new ArgumentNullException(nameof(path));
+            if (string.IsNullOrWhiteSpace(serviceId))
+                throw new ArgumentNullException(nameof(serviceId));
 
             this.Timestamp = timestamp;
             this.HttpStatus = httpStatus;

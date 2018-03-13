@@ -24,7 +24,7 @@ namespace Monitor.Console
 
         private static async Task OnLogInformation(LogInformation message)
         {
-            using (DbContext context = new MonitorContextFactory().CreateDbContext(new string[]{}))
+            using (MonitorDbContext context = new MonitorContextFactory().CreateDbContext(new string[]{}))
             {
                 IUnitOfWork unitOfWork = new UnitOfWork(context);
 

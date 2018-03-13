@@ -64,7 +64,7 @@ namespace LoadBalancer
             }
 
             
-            app.UseLogInformation();
+            //app.UseLogInformation();
 
             // Add the ProxyMiddleware to the application, so proxy can redirect all
             // request to the correct services with the help of the load balancer.
@@ -83,11 +83,13 @@ namespace LoadBalancer
                     new PathString(message.PathBase), 
                     new QueryString(message.AppendQuery),
                     message.ServiceId));
+                Console.WriteLine("Service Registeret");
             }));
             
             bus.SubscribeAsync<LoadBalancer.Messages.DeRegisterService>("LoadBalancer", (message) => Task.Factory.StartNew(() =>
             {
                 loadBalancer.Remove(message.ServiceId);
+                Console.WriteLine("Service DeRegisteret");
             }));
         }
     }

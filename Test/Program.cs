@@ -25,15 +25,15 @@ namespace Test
             var destination = new Uri(host);
             
             HttpClient client = new HttpClient();
-
-            HttpRequestMessage requestMessage = new HttpRequestMessage(
-                HttpMethod.Get, 
-                destination);
-
+            
             List<Task> requests = new List<Task>();
 
             while (DateTime.Now < end)
             {
+                HttpRequestMessage requestMessage = new HttpRequestMessage(
+                    HttpMethod.Get,
+                    destination);
+
                 var task = client.SendAsync(requestMessage);
 
                 task.ContinueWith((message) =>
@@ -45,7 +45,7 @@ namespace Test
 
                 requests.Add(task);
 
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
 
                 Console.WriteLine("Sent http request to service.");
             }
@@ -54,7 +54,7 @@ namespace Test
             {
                 request.Wait();
             }
-
+            Console.WriteLine($"Number of requests send: {requests.Count}");
             Console.WriteLine("All requests is end, press any key to exit.");
             Console.ReadLine();
         }

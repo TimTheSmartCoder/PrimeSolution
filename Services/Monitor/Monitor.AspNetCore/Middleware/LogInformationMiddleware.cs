@@ -42,6 +42,8 @@ namespace Monitor.AspNetCore.Middleware
 
             long duration = stopwatch.ElapsedMilliseconds;
 
+            Console.WriteLine(this.config["ServiceId"]);
+
             LogInformation logMessage = new LogInformation(
                 DateTime.Now, 
                 context.Response.StatusCode, 
