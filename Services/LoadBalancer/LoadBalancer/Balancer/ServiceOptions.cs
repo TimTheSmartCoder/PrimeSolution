@@ -13,17 +13,21 @@ namespace LoadBalancer.Balancer
             string scheme, 
             HostString host, 
             PathString pathBase, 
-            QueryString appendQuery)
+            QueryString appendQuery,
+            string serviceId)
         {
             if (string.IsNullOrWhiteSpace(scheme))
                 throw new ArgumentNullException(nameof(scheme));
             if (host == null)
                 throw new ArgumentNullException(nameof(host));
+            if (string.IsNullOrWhiteSpace(serviceId))
+                throw new ArgumentNullException(nameof(serviceId));
 
             this.Scheme = scheme;
             this.Host = host;
             this.PathBase = pathBase;
             this.AppendQuery = appendQuery;
+            this.ServiceId = serviceId;
         }
 
         public string Scheme { get;}
@@ -33,5 +37,7 @@ namespace LoadBalancer.Balancer
         public PathString PathBase { get; }
 
         public QueryString AppendQuery { get; }
+
+        public string ServiceId { get; }
     }
 }

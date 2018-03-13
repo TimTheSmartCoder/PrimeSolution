@@ -23,5 +23,7 @@ namespace LoadBalancer.Balancer
         /// Query string parameters to append to each request
         /// </summary>
         QueryString AppendQuery { get; }
+
+        string ServiceId { get; }
     }
 }

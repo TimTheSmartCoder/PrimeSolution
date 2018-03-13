@@ -29,7 +29,8 @@ namespace Prime.Api
                     this.EnviromentUri.Host,
                     this.EnviromentUri.Port,
                     this.EnviromentUri.AbsolutePath,
-                    this.EnviromentUri.Query));
+                    this.EnviromentUri.Query,
+                    this.Configuration["ServiceId"]));
             }
             catch (Exception e)
             {
@@ -57,7 +58,13 @@ namespace Prime.Api
             IHostingEnvironment env)
         {
             // Dispose EasyNetQ IBus.
-            applicationLifetime.ApplicationStopping.Register(() => { this.Bus?.Dispose(); });
+            applicationLifetime.ApplicationStopping.Register(() =>
+            {
+                // Notify everyone else that we are shuttingdown.
+                this.Bus.Publish(new DeRegisterService(this.Configuration["ServiceId"]));
+
+                this.Bus?.Dispose();
+            });
 
             if (env.IsDevelopment())
             {

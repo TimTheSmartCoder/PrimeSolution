@@ -81,7 +81,13 @@ namespace LoadBalancer
                     message.Scheme,
                     new HostString(message.Host, message.Port),
                     new PathString(message.PathBase), 
-                    new QueryString(message.AppendQuery)));
+                    new QueryString(message.AppendQuery),
+                    message.ServiceId));
+            }));
+            
+            bus.SubscribeAsync<LoadBalancer.Messages.DeRegisterService>("LoadBalancer", (message) => Task.Factory.StartNew(() =>
+            {
+                loadBalancer.Remove(message.ServiceId);
             }));
         }
     }

@@ -38,6 +38,18 @@ namespace LoadBalancer.Balancer
             this.services.Add(serviceOptions);
         }
 
+        public void Remove(string serviceId)
+        {
+            if (string.IsNullOrWhiteSpace(serviceId))
+                throw new ArgumentNullException(nameof(serviceId));
+
+            var uri = new UriBuilder();
+
+            var service = this.services.FirstOrDefault(x => x.ServiceId.Equals(serviceId));
+
+            this.services.Remove(service);
+        }
+        
         public IServiceOptions Next()
         {
             // Check if any services is available.

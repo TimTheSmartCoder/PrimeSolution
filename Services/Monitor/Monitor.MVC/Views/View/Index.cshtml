@@ -4,16 +4,42 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Monitoring information.</h2>
 
-<canvas id="requestTimeGraph" width="200" height="200"></canvas>
-<canvas id="requestGraph" width="200" height="200"></canvas>
-
-
-@foreach (var log in Model.LogInformations)
-{
-    <p>@log.Id</p>
-}
+<div style="overflow: auto; width: 100%;">
+    <div style="float: left; width: 50%;">
+        <h4>Execution time of requests for all services.</h4>
+        <canvas id="requestTimeGraph" style="display: inline-block;"></canvas>
+    </div>
+    <div style="float: right; width: 50%;">
+        <h4>Number of requests pr. Service.</h4>
+        <canvas id="requestGraph" style="display: inline-block;"></canvas>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+<div style="height: 20px;"></div>
+<h4>All Http requests to all services.</h4>
+<div style="width: 100%; overflow: auto;">
+    <div style="width: 100%; overflow: auto; font-weight: bold;">
+        <div style="float: left; width: 20%;">Service Id</div>
+        <div style="float: left; width: 20%;">Http Method</div>
+        <div style="float: left; width: 20%;">Http Status</div>
+        <div style="float: left; width: 20%;">Duration(ms)</div>
+        <div style="float: left; width: 20%;">Path</div>
+    </div>
+    <div style="overflow-y: auto; height: 150px;">
+    @foreach (var log in Model.LogInformations)
+    {
+        <div style="width: 100%; overflow: auto; background-color: lightgray; margin: 5px 5px 5px 0px; padding: 5px;">
+            <div style="float: left; width: 20%">@log.ServiceId</div>
+            <div style="float: left; width: 20%;">@log.HttpMethod</div>
+            <div style="float: left; width: 20%;">@log.HttpStatus</div>
+            <div style="float: left; width: 20%;">@log.Duration</div>
+            <div style="float: left; width: 20%;">@log.Path</div>
+        </div>
+    }
+    </div>
+</div>
 
 @section Scripts {
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
