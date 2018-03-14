@@ -20,7 +20,7 @@ namespace Prime.Api.Controllers
             return Ok(result);
         }
 
-        
+        [HttpGet]
         public async Task<IActionResult> CountPrimes(long startNum, long endNum)
         {
             int result = await Calculator.GetPrimes(startNum, endNum);
